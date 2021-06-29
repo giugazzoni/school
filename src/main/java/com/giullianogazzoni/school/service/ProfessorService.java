@@ -2,6 +2,7 @@ package com.giullianogazzoni.school.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,19 @@ public class ProfessorService {
 		List<Professor> professores = new ArrayList<>();
 		professorRepository.findAll().forEach(professor -> professores.add(professor));
 		return professores;
+	}
+	
+	public Optional<Professor> obterProfessorPorId(Long id) {
+		return professorRepository.findById(id);
+	}
+	
+	public Professor salvarOuAtualizar(Professor professor) {
+		professorRepository.save(professor);
+		return professor;
+	}
+	
+	public void deletar(Long id) {
+		professorRepository.deleteById(id);
 	}
 	
 }
