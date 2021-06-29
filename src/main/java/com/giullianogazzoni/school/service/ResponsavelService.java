@@ -22,7 +22,7 @@ public class ResponsavelService {
 		return responsavels;
 	}
 
-	public Optional<Responsavel> obterresponsavelPorId(Long id) {
+	public Optional<Responsavel> obterResponsavelPorId(Long id) {
 		return responsavelRepository.findById(id);
 	}
 
